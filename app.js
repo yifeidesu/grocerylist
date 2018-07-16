@@ -15,13 +15,13 @@ const middlewares = require('./middlewares/middlewares');
 
 const User = require('./models/user');
 
-const DB_URL = process.env.DB_URL || configDB.databaseURL ;
+const DB_URL = process.env.DB_URL || configDB.databaseURL;
 mongoose.connect(DB_URL, { useNewUrlParser: true });
 mongoose.connection.on('connected', () => {
     console.log('Connected to db at ' + DB_URL);
 });
 mongoose.connection.on('error', (err) => {
-    console.log('Database error: ' + err);
+    console.log(DB_URL + 'Database error: ' + err);
 });
 
 const app = express();
