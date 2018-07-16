@@ -1101,7 +1101,7 @@ var httpOptions = {
     headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({ 'Content-Type': 'application/json' })
 };
 //const ENDPOINT = 'http://localhost:3000/users/';
-var ENDPOINT = '/users/';
+var ENDPOINT = 'users/';
 var UserService = /** @class */ (function () {
     function UserService(http) {
         this.http = http;
