@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const passport = require('passport');
+//const passport = require('passport');
 const cors = require('cors');
 
 const configDB = require('./config/db');
@@ -36,13 +36,13 @@ app.use(cors());
 //     resave: false,
 //     saveUninitialized: false
 // }));
-app.use(passport.initialize());
-app.use(passport.session());
+// app.use(passport.initialize());
+// app.use(passport.session());
 // passport.use(new LocalStrategy(User.authenticate()));
 // passport.serializeUser(User.serializeUser());
 // passport.deserializeUser(User.deserializeUser());
 
-require('./config/passport')(passport);
+//require('./config/passport')(passport);
 
 //app.all('*', middlewares.isLoggedIn);
 //app.use('/users', usersRouter);

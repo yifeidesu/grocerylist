@@ -59,7 +59,6 @@ router.post('/', (req, res, next) => {
     const newItem = {
         title: req.body.title,
         note: req.body.note,
-       
     };
 
     Item.addItem(newItem, function (err, newItem) {
@@ -81,42 +80,42 @@ router.delete('/:id', (req, res) => {
     });
 });
 
-// Delete an item
-router.post('/authenticate', (req, res, next) => {
-    const username = req.body.username;
-    const password = req.body.password;
+// // Delete an item
+// router.post('/authenticate', (req, res, next) => {
+//     const username = req.body.username;
+//     const password = req.body.password;
 
-    Item.findByUsername(username, (err, user) => {
-        if (err) throw err;
-        if (!user) {
-            return res.json({ success: false, msg: 'User not found' });
-        }
+//     Item.findByUsername(username, (err, user) => {
+//         if (err) throw err;
+//         if (!user) {
+//             return res.json({ success: false, msg: 'User not found' });
+//         }
 
-        Item.comparePassword(password, user.password, (err, isMatch) => {
-            if (err) throw err;
-            if (isMatch) {
-                const token = jwt.sign({ data: user }, configDB.secret, {
-                    expiresIn: 604800
-                });
+//         Item.comparePassword(password, user.password, (err, isMatch) => {
+//             if (err) throw err;
+//             if (isMatch) {
+//                 const token = jwt.sign({ data: user }, configDB.secret, {
+//                     expiresIn: 604800
+//                 });
 
-                res.json({
-                    success: true,
-                    token: 'JWT ' + token,
-                    user: {
-                        id: user._id,
-                        username: user.username,
-                        email: user.email
-                    }
-                });
-            } else {
-                return res.json({
-                    success: false, msg: 'Wrong password'
-                });
-            }
-        });
-    });
+//                 res.json({
+//                     success: true,
+//                     token: 'JWT ' + token,
+//                     user: {
+//                         id: user._id,
+//                         username: user.username,
+//                         email: user.email
+//                     }
+//                 });
+//             } else {
+//                 return res.json({
+//                     success: false, msg: 'Wrong password'
+//                 });
+//             }
+//         });
+//     });
 
-});
+// });
 
 
 module.exports = router;
