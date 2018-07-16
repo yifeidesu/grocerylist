@@ -1,0 +1,9 @@
+<div class="row">
+  <div class="col-lg-5">
+    <app-item-add [items]="items" [createdItem]="createdItem"></app-item-add>
+  </div>
+  <div class="col-lg-7">
+    <app-list [items]="items" [createdItem]="createdItem"></app-list>
+  </div>
+  <button (click)="printItem()">OK</button>
+</div>
