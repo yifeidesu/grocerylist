@@ -21,7 +21,7 @@ mongoose.connection.on('connected', () => {
     console.log('Connected to db at ' + DB_URL);
 });
 mongoose.connection.on('error', (err) => {
-    console.log(DB_URL + 'Database error: ' + err);
+    console.log( DB_URL + 'Database error: ' + err);
 });
 
 const app = express();
