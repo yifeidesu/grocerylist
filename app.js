@@ -46,8 +46,7 @@ app.use(passport.session());
 
 //app.all('*', middlewares.isLoggedIn);
 //app.use('/users', usersRouter);
-app.use('api/items', itemsRouter); /**TODO CHANGE TO username/items */
-
+app.use('/items', itemsRouter); /**TODO CHANGE TO username/items */
 
 app.get('/', (req, res) => {
     res.send('root route');
