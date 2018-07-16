@@ -21,7 +21,7 @@ mongoose.connection.on('connected', () => {
     console.log('Connected to db at ' + DB_URL);
 });
 mongoose.connection.on('error', (err) => {
-    console.log( DB_URL + 'Database error: ' + err);
+    console.log('Database error: ' + err);
 });
 
 const app = express();
@@ -46,7 +46,7 @@ app.use(cors());
 
 //app.all('*', middlewares.isLoggedIn);
 //app.use('/users', usersRouter);
-app.use('/api', itemsRouter); /**TODO CHANGE TO username/items */
+app.use('/api/items', itemsRouter);
 
 app.get('*', (req, res) => {
     res.redirect('/');

@@ -35,11 +35,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppRoutingModule", function() { return AppRoutingModule; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _components_register_register_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/register/register.component */ "./src/app/components/register/register.component.ts");
-/* harmony import */ var _components_item_detail_item_detail_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/item-detail/item-detail.component */ "./src/app/components/item-detail/item-detail.component.ts");
-/* harmony import */ var _components_item_edit_item_edit_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/item-edit/item-edit.component */ "./src/app/components/item-edit/item-edit.component.ts");
-/* harmony import */ var _components_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/dashboard/dashboard.component */ "./src/app/components/dashboard/dashboard.component.ts");
-/* harmony import */ var _components_signin_signin_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/signin/signin.component */ "./src/app/components/signin/signin.component.ts");
+/* harmony import */ var _components_item_detail_item_detail_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/item-detail/item-detail.component */ "./src/app/components/item-detail/item-detail.component.ts");
+/* harmony import */ var _components_item_edit_item_edit_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/item-edit/item-edit.component */ "./src/app/components/item-edit/item-edit.component.ts");
+/* harmony import */ var _components_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/dashboard/dashboard.component */ "./src/app/components/dashboard/dashboard.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -51,15 +49,13 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
-
-
 var routes = [
     { path: '', redirectTo: '/', pathMatch: 'full' },
-    { path: 'items', component: _components_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_5__["DashboardComponent"] },
-    { path: 'items/:id', component: _components_item_detail_item_detail_component__WEBPACK_IMPORTED_MODULE_3__["ItemDetailComponent"] },
-    { path: 'items/:id/edit', component: _components_item_edit_item_edit_component__WEBPACK_IMPORTED_MODULE_4__["ItemEditComponent"] },
-    { path: 'register', component: _components_register_register_component__WEBPACK_IMPORTED_MODULE_2__["RegisterComponent"] },
-    { path: 'signin', component: _components_signin_signin_component__WEBPACK_IMPORTED_MODULE_6__["SigninComponent"] }
+    { path: 'items', component: _components_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_4__["DashboardComponent"] },
+    { path: 'items/:id', component: _components_item_detail_item_detail_component__WEBPACK_IMPORTED_MODULE_2__["ItemDetailComponent"] },
+    { path: 'items/:id/edit', component: _components_item_edit_item_edit_component__WEBPACK_IMPORTED_MODULE_3__["ItemEditComponent"] }
+    // { path: 'register', component: RegisterComponent },
+    // { path: 'signin', component: SigninComponent }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -969,7 +965,7 @@ var ItemService = /** @class */ (function () {
     function ItemService(http) {
         this.http = http;
         //private itemsUrl = 'api/Itemes';  // URL to web api
-        //private ITEMS_URL = 'http://localhost:3000/items/';
+        //private ITEMS_URL = 'http://localhost:3000/api/items/';
         this.ITEMS_URL = 'api/items/';
     }
     /** GET Itemes from the server */
