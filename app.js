@@ -18,7 +18,7 @@ const User = require('./models/user');
 const DB_URL = process.env.DB_URL || configDB.databaseURL ;
 mongoose.connect(DB_URL, { useNewUrlParser: true });
 mongoose.connection.on('connected', () => {
-    console.log('Connected to db at ' + configDB.databaseURL);
+    console.log('Connected to db at ' + DB_URL);
 });
 mongoose.connection.on('error', (err) => {
     console.log('Database error: ' + err);
@@ -42,7 +42,7 @@ app.use(passport.session());
 // passport.serializeUser(User.serializeUser());
 // passport.deserializeUser(User.deserializeUser());
 
-//require('./config/passport')(passport);
+require('./config/passport')(passport);
 
 //app.all('*', middlewares.isLoggedIn);
 //app.use('/users', usersRouter);
