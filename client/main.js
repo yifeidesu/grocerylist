@@ -675,7 +675,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\n  <a class=\"navbar-brand\" href=\"#\">🍅GroceryList</a>\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNavAltMarkup\" aria-controls=\"navbarNavAltMarkup\"\n    aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n  <div class=\"collapse navbar-collapse\" id=\"navbarNavAltMarkup\">\n    <div class=\"navbar-nav\">\n      <a class=\"nav-item nav-link\" routerLink=\"/items\">Dashboard</a>\n      \n      <a class=\"nav-item nav-link\" routerLink=\"/\">GitHub</a>\n      <a class=\"nav-item nav-link\" routerLink=\"/\">Portfolio</a>\n\n      <a class=\"nav-item nav-link\" routerLink=\"/register\">SIGN UP</a>\n      <a class=\"nav-item nav-link\" routerLink=\"/signin\">Sign in</a>\n      <a (click)=\"onLogoutClick()\" class=\"nav-item nav-link\" routerLink=\"/\">LOG OUT</a>\n    </div>\n  </div>\n</nav>"
+module.exports = "<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\n  <a class=\"navbar-brand\" href=\"#\">🍅GroceryList</a>\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNavAltMarkup\" aria-controls=\"navbarNavAltMarkup\"\n    aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n  <div class=\"collapse navbar-collapse\" id=\"navbarNavAltMarkup\">\n    <div class=\"navbar-nav\">\n      <a class=\"nav-item nav-link\" routerLink=\"/items\">Dashboard</a>\n      <a class=\"nav-item nav-link\" routerLink=\"/\">GitHub</a>\n      <a class=\"nav-item nav-link\" routerLink=\"/\">Portfolio</a>\n    </div>\n  </div>\n</nav>"
 
 /***/ }),
 
@@ -969,7 +969,8 @@ var ItemService = /** @class */ (function () {
     function ItemService(http) {
         this.http = http;
         //private itemsUrl = 'api/Itemes';  // URL to web api
-        this.ITEMS_URL = 'http://localhost:3000/items/';
+        //private ITEMS_URL = 'http://localhost:3000/items/';
+        this.ITEMS_URL = 'api/items/';
     }
     /** GET Itemes from the server */
     ItemService.prototype.getItems = function () {

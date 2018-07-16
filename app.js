@@ -45,7 +45,7 @@ app.use(passport.session());
 //require('./config/passport')(passport);
 
 //app.all('*', middlewares.isLoggedIn);
-app.use('/users', usersRouter);
+//app.use('/users', usersRouter);
 app.use('/items', itemsRouter); /**TODO CHANGE TO username/items */
 
 
