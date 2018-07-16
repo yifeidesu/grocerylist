@@ -1,3 +1,10 @@
 .justify-content-center{
-    padding: 0 4rem;
+    margin: 0!important;
+    padding: 0;
+    height: 80vh;
+}
+
+.flash {
+    position: absolute;
+    bottom: 10px;
 }

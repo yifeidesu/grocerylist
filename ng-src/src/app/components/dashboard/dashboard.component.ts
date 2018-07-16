@@ -12,18 +12,5 @@ export class DashboardComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
-
-  // fetch all
-
-  // createItem
-
-  // updateList
-
-  printItem() {
-    console.log(JSON.stringify(this.createdItem.title));
-
-  }
-
+  ngOnInit() { }
 }

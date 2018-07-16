@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ItemService } from '../../services/item/item.service';
 import { ActivatedRoute } from "@angular/router";
-import { Title } from '../../../../node_modules/@angular/platform-browser';
+import { FlashMessagesService } from 'angular2-flash-messages';
+import { Location } from '@angular/common';
+
 
 @Component({
   selector: 'app-item-detail',
@@ -9,11 +11,16 @@ import { Title } from '../../../../node_modules/@angular/platform-browser';
   styleUrls: ['./item-detail.component.css']
 })
 export class ItemDetailComponent implements OnInit {
-  showDetail = true
-  item = {}
+  item={};
+  showDetail = true;
   itemId = ''
 
-  constructor(private itemService: ItemService, private route: ActivatedRoute) { }
+  constructor(
+    private itemService: ItemService,
+    private route: ActivatedRoute,
+    private flashMessage: FlashMessagesService,
+    private location: Location
+  ) { }
 
   ngOnInit() {
     this.getItemById();
@@ -39,20 +46,25 @@ export class ItemDetailComponent implements OnInit {
       });
     }
     this.showDetail = !this.showDetail;
+    window.location.href = '/items';
   }
 
   editItem() {
     this.showDetail = !this.showDetail;
   }
 
-  saveItem(){
+  saveItem() {
     this.itemService.updateItem(this.item).subscribe((data) => {
-      // hide from, show detail, show flash
-   this.toggleDisplay();
+      this.flashMessage.show('Saved', { cssClass: 'alert-success', timeout: 1000 });
+      this.toggleDisplay();
     });
   }
 
-  toggleDisplay(){
+  back(){
+    this.location.back();
+  }
+
+  toggleDisplay() {
     this.showDetail = !this.showDetail;
   }
 }

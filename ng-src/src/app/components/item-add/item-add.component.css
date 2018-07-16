@@ -1,0 +1,8 @@
+#randomBtn {
+    background-color: blueviolet;
+    color: #fff;
+}
+
+.disabled {
+    opacity: .4;
+}

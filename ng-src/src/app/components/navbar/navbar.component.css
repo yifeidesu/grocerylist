@@ -1,0 +1,13 @@
+nav {
+    padding: .5em 0;
+    margin-bottom: 2em!important;
+    font-weight: 600;
+}
+
+.row {
+    margin: 0;
+}
+
+.navbar-nav a {
+    letter-spacing: 1px;
+}

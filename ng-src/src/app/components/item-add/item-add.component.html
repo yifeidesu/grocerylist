@@ -1,14 +1,20 @@
 <form>
   <div>
     <label for="itemTitle">Title</label>
-    <input [(ngModel)]="createdItem.title" name="title" id="title" (change)="checkInputEmply()" class="form-control" type="text" placeholder="What to buy...">
+    <input [(ngModel)]="createdItem.title" name="title" id="title" (keyup)="checkInputEmply()" [value]="textContent" class="form-control" type="text"
+      placeholder="What to buy...">
   </div>
+  <br>
   <div class="form-group">
     <label for="itemNote">Notes</label>
-    <textarea [(ngModel)]="createdItem.note" name="note" id="itemNote" class="form-control" rows="2"></textarea>
+    <textarea [(ngModel)]="createdItem.note" name="note" id="itemNote" class="form-control" rows="2" placeholder="Add some notes..."></textarea>
   </div>
-  <button (click)="addItem()" class="btn disabled" type="submit" id="okBtn">Add</button>
-  <button class="btn btn-light">Cancel</button>
+
+  <button (click)="addItem()" type="submit" id="okBtn" class="btn btn-success disabled">Add</button>
+  <button (click)="clearFields()" routerLink="/items" class="btn btn-light">Cancel</button>
+
 </form>
-<br/>
+<br>
+<button (click)="populateList()" id="randomBtn" class="btn btn-light" [ngClass]="items.length<1 ? '': 'disabled'">Generate Some</button>
+
 <!-- <flash-messages></flash-messages> -->

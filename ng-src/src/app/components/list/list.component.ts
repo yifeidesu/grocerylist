@@ -18,7 +18,6 @@ export class ListComponent implements OnInit {
   }
 
   getItems(): void {
-    
     this.itemService.getItems()
       .subscribe(data => {
         data.forEach(item => {

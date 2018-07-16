@@ -10,21 +10,19 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 export class ItemAddComponent implements OnInit {
   @Input() items;
   @Input() createdItem = { title: '' };
-  
+  @Input() value;
+
   constructor(private itemService: ItemService,
     private flashMessage: FlashMessagesService) { }
 
-  ngOnInit() {
-
-  }
+  ngOnInit() { }
 
   addItem() {
-
     if (this.createdItem.title.length > 0) {
       this.itemService.addItem(this.createdItem).subscribe((data) => {
         this.clearFields();
         this.flashMessage.show('Added', { cssClass: 'alert-success', timeout: 1000 });
-        this.items.unshift(data);        
+        this.items.unshift(data);
       });
     } else {
       this.flashMessage.show('Item must have a title', { cssClass: 'alert-danger', timeout: 1000 });
@@ -32,19 +30,42 @@ export class ItemAddComponent implements OnInit {
   }
 
   checkInputEmply() {
-
+    console.log(this.value);
+    
     const titleInput = document.getElementById("title");
     const okBtn = document.getElementById("okBtn");
 
-    if (titleInput.textContent.length < 1) {
-      okBtn.classList.add("disabled");
-    } else {
+    console.log(titleInput);
+    
+
+    if (titleInput.textContent.length > 1) {
       okBtn.classList.remove("disabled");
+    } else {
+      okBtn.classList.add("disabled");
     }
   }
 
   clearFields() {
     document.getElementsByTagName("input")[0].value = '';
+    document.getElementsByTagName("input")[1].value = '';
     this.createdItem = { title: '' };
+  }
+
+  populateList() {
+
+    if (this.items.length < 1) {
+      const seeds = [
+        { title: "Carrots", note: "Important!" },
+        { title: "Ice cream", note: "Many many" },
+        { title: "Chips", note: "Original flavour" }
+      ];
+
+      seeds.forEach(item => {
+        this.itemService.addItem(item).subscribe((data) => {
+          this.flashMessage.show('Added', { cssClass: 'alert-success', timeout: 1000 });
+          this.items.unshift(data);
+        });
+      });
+    }
   }
 }

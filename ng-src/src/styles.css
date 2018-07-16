@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+html,body {
+    width: 100%;
+}
+
+body {
+    font-family: Quicksand, 'Courier New', Courier, monospace;
+}
+
+.col-lg-6 {
+    padding: 0!important;
+}
+
+.btn {
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin: 0 1em 0 0;
+}
