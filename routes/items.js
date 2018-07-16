@@ -15,6 +15,8 @@ router.get("/", function (req, res, next) {
         
     // });
     //const userId = req.user._id;
+    
+    
     Item.findAll((err, items) => {
         if (err) throw err
         res.json(items);

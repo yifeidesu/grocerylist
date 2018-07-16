@@ -970,7 +970,7 @@ var ItemService = /** @class */ (function () {
         this.http = http;
         //private itemsUrl = 'api/Itemes';  // URL to web api
         //private ITEMS_URL = 'http://localhost:3000/items/';
-        this.ITEMS_URL = 'items/';
+        this.ITEMS_URL = 'api/items/';
     }
     /** GET Itemes from the server */
     ItemService.prototype.getItems = function () {
