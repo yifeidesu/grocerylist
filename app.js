@@ -16,7 +16,7 @@ const middlewares = require('./middlewares/middlewares');
 const User = require('./models/user');
 
 const DB_URL = process.env.DB_URL || configDB.databaseURL ;
-mongoose.connect(configDB.databaseURL, { useNewUrlParser: true });
+mongoose.connect(DB_URL, { useNewUrlParser: true });
 mongoose.connection.on('connected', () => {
     console.log('Connected to db at ' + configDB.databaseURL);
 });
@@ -48,8 +48,8 @@ app.use(passport.session());
 //app.use('/users', usersRouter);
 app.use('/api', itemsRouter); /**TODO CHANGE TO username/items */
 
-app.get('/', (req, res) => {
-    res.send('root route');
+app.get('*', (req, res) => {
+    res.redirect('/');
 });
 
 const PORT = process.env.PORT || 3000;
