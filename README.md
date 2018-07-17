@@ -19,10 +19,14 @@ Now the app’s front-end is running with the artifacts built from the Angular f
 
 To tweak the front-end, please follow those steps:
 * Open a terminal, change directory to the Angular src folder `/ng-src`
-* Run `ng serve --open`. This will start another server and open `http://localhost:4200`. 
+* Install Angular CLI if not yet: `npm install -g @angular/cli`
+* Run `ng serve --open`. This will start another server and open `http://localhost:4200`
 Now if you do some change in `/ng-src`, the change will automatically reflect at this address. 
 
-To integrate the front-end change with the whole application, run `ng build` and restart `http://localhost:3000`'s server. This will generate new artifacts in the output folder `/client` and update the application’s front-end side.  
+To integrate the front-end change with the whole application:
+* Run `ng build` and 
+* Restart `http://localhost:3000`'s server. 
+This will generate new artifacts in the output folder `/client` and update the application’s front-end side.  
 
 #### About database
 Following the above steps, now the server is connected to an database for development purpose. So that, if a user creates/edits/delete items with this local-deployed app, the modification will not reflect on the app’s [live website](https://still-beach-44000.herokuapp.com/items). 
