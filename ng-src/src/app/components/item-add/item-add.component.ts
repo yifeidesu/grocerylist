@@ -32,7 +32,6 @@ export class ItemAddComponent implements OnInit {
 
   onKey(event: any) {
     this.titleText = event.target.value;
-    console.log(this.titleText);
     const okBtn = document.getElementById("okBtn");
 
     if (this.titleText.length > 1) {
@@ -43,8 +42,8 @@ export class ItemAddComponent implements OnInit {
   }
 
   clearFields() {
-    document.getElementsByTagName("input")[0].value = '';
-    document.getElementsByTagName("input")[1].value = '';
+    (<HTMLInputElement>document.getElementById("titleInput")).value = '';
+    (<HTMLInputElement>document.getElementById("noteInput")).value = '';
     this.createdItem = { title: '' };
     document.getElementById("okBtn").classList.add("disabled");
   }
@@ -73,12 +72,10 @@ export class ItemAddComponent implements OnInit {
       this.itemService.removeAll().subscribe((data) => {
         if(data.success == true) {
           this.flashMessage.show('All removed!', { cssClass: 'alert-danger', timeout: 1000 });
-          this.items.splice(0, this.items.length);
-          console.log(this.items);
-          
+          this.items.splice(0, this.items.length);          
         } else {
           this.flashMessage.show('Something wrong happened.', { cssClass: 'alert-success', timeout: 1000 });
-          console.log(data.msg);
+          console.error(data.msg);
         }
       });
     }

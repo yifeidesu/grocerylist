@@ -1,13 +1,13 @@
 <form>
   <div>
     <label for="itemTitle">Title</label>
-    <input [(ngModel)]="createdItem.title" name="title" id="title" (keyup)="onKey($event)" [value]="textContent" class="form-control" type="text"
+    <input [(ngModel)]="createdItem.title" name="title" id="titleInput" (keyup)="onKey($event)" class="form-control" type="text"
       placeholder="What to buy...">
   </div>
   <br>
   <div class="form-group">
     <label for="itemNote">Notes</label>
-    <textarea [(ngModel)]="createdItem.note" name="note" id="itemNote" class="form-control" rows="2" placeholder="Add some notes..."></textarea>
+    <textarea [(ngModel)]="createdItem.note" name="note" id="noteInput" class="form-control" rows="2" placeholder="Add some notes..."></textarea>
   </div>
 
   <button [disabled]="isUnchanged" (click)="addItem()" type="submit" id="okBtn" class="btn btn-success disabled">Add</button>
