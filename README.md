@@ -3,17 +3,17 @@
 ### Application is live on this [link](https://limitless-river-45900.herokuapp.com/items)
 
 ## Deployment Instructions
-### 0.    Download
+### Quick Deploy
+#### 0.    Download
 Download this repository.
 
-### 1.    Node 
+#### 1.    Node 
 *    Install Node.js if not yet: https://nodejs.org/en/
 *    Open a terminal, change directory to root folder of this project. Run `npm install` to install packages.  
 *    Run `npm start` to start the server.
 
-### 2.    And that's it!
+#### 2.    And that's it!
 Open the browser and go to [http://localhost:3000](http://localhost:3000/items)  
-
 
 ### To Tweak Front-end Side
 Now the app’s front-end is running with the artifacts built from the Angular front-end source code. If you do some change to the Angular code in the `/ng-src` folder, the modification will not directly reflect on the screen, because the built artifact will not automatically rebuild with the changed front-end source code.
