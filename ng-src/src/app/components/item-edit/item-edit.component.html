@@ -9,8 +9,7 @@
     <textarea [(ngModel)]="item.note" name="note" id="itemNote" class="form-control" rows="3"></textarea>
   </div>
   <div class="form-check">
-    <input [(ngModel)]="item.purchased" name="purchased" type="checkbox" checked={{item.purchased}} class="form-check-input"
-      id="itemPurchased">
+    <input [(ngModel)]="item.purchased" name="purchased" type="checkbox" value={{item.purchased}} class="form-check-input" id="itemPurchased">
     <label class="form-check-label" for="itemPurchased">Purchased</label>
   </div>
   <br>

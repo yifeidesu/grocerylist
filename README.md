@@ -32,7 +32,7 @@ This will generate new artifacts in the output folder `/client` and update the a
 ### About database
 Following the above steps, now the server is connected to an database for development purpose. So that, if a user creates/edits/delete items with this local-deployed app, the modification will not reflect on the app’s [live website](https://limitless-river-45900.herokuapp.com/items). 
 
-Alternatively, a user can setup a local database environment to serve this application, which takes a few more steps. To do that, please refer to [MongoDB's Docs](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/) and do the below steps:
+Besides, alternatively, a user can setup a local database environment to serve this application, which takes a few more steps. To do that, please refer to [MongoDB's Docs](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/) and do the below steps:
 * Install MongoDB
 * Run mongod.exe
 * Run mongo.exe
@@ -43,7 +43,22 @@ Then change database URL:
 * Then restart `http://localhost:3000`'s server. Now the application is running with local database.
 
 ## Screenshots and comments
+* Use the input fields to add items to the list.
+* Every item has a title, and optionaly has a note. Note is not showing in the list.
+* This page list all items at the right-hand side.
+* Purchased items have lower opacity, looking differently from unpurchased ones.
 ![dashboard](https://user-images.githubusercontent.com/23082500/42802348-aa1c389a-8970-11e8-9080-fb05b9f0df78.png)
+
+* Click an item in the list to open its detail view.
+* The detail view displays both the item's title and notes.
+* Click the Delete button to delete current item.
+* Click the Delete button will get a confirm dialog.
+* Click the Edit button will navigate user to the edit forms.
+* In detail view, when item is purchased, it will has a label of Item purchased; while when not purchased, it has a label of Item to purchase. 
+
 ![detail](https://user-images.githubusercontent.com/23082500/42802349-aa2dd014-8970-11e8-9b69-d37bfeb796e2.png)
+
+* Click the Save/Cancel button to save/cancel the edit.
+* Click the Purchased checkbox to toggle item as purchased/unpurchased.
 ![edit](https://user-images.githubusercontent.com/23082500/42802351-aa3b77be-8970-11e8-8101-e593609938ed.png)
 
