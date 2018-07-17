@@ -47,16 +47,17 @@ Then change database URL:
 * Every item has a title, and optionaly has a note. Note is not showing in the list.
 * This page list all items at the right-hand side.
 * Purchased items have lower opacity, looking differently from unpurchased ones.
-![dashboard](https://user-images.githubusercontent.com/23082500/42802348-aa1c389a-8970-11e8-9080-fb05b9f0df78.png)
-
 * Click an item in the list to open its detail view.
+![dashboard](https://user-images.githubusercontent.com/23082500/42802348-aa1c389a-8970-11e8-9080-fb05b9f0df78.png)
+<hr>
+
 * The detail view displays both the item's title and notes.
 * Click the Delete button to delete current item.
 * Click the Delete button will get a confirm dialog.
 * Click the Edit button will navigate user to the edit forms.
 * In detail view, when item is purchased, it will has a label of Item purchased; while when not purchased, it has a label of Item to purchase. 
-
 ![detail](https://user-images.githubusercontent.com/23082500/42802349-aa2dd014-8970-11e8-9b69-d37bfeb796e2.png)
+<hr>
 
 * Click the Save/Cancel button to save/cancel the edit.
 * Click the Purchased checkbox to toggle item as purchased/unpurchased.
