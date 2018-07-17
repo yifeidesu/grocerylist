@@ -65,14 +65,13 @@ export class ItemAddComponent implements OnInit {
     }
   }
 
-  removeAll(){
-    // alert 
-    const result = confirm("Want to delete?");
+  removeAll() {
+    const result = confirm("Want to delete all?");
     if (result) {
       this.itemService.removeAll().subscribe((data) => {
-        if(data.success == true) {
+        if (data.success == true) {
           this.flashMessage.show('All removed!', { cssClass: 'alert-danger', timeout: 1000 });
-          this.items.splice(0, this.items.length);          
+          this.items.splice(0, this.items.length);
         } else {
           this.flashMessage.show('Something wrong happened.', { cssClass: 'alert-success', timeout: 1000 });
           console.error(data.msg);

@@ -377,8 +377,7 @@ var ItemAddComponent = /** @class */ (function () {
     };
     ItemAddComponent.prototype.removeAll = function () {
         var _this = this;
-        // alert 
-        var result = confirm("Want to delete?");
+        var result = confirm("Want to delete all?");
         if (result) {
             this.itemService.removeAll().subscribe(function (data) {
                 if (data.success == true) {

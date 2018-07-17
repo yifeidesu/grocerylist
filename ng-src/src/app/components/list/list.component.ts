@@ -27,6 +27,5 @@ export class ListComponent implements OnInit {
 
   togglePurchased(item) {
     this.itemService.updateItem(item).subscribe();
-    
   }
 }

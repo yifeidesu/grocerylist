@@ -1,7 +1,6 @@
 const Item = require('../models/item');
 const router = require('express').Router();
 
-
 // Index all items
 router.get("/", function (req, res, next) {
     Item.findAll((err, items) => {
@@ -16,11 +15,6 @@ router.get('/:id', (req, res) => {
         if (err) throw err;
         res.json(item);
     });
-});
-
-// EDIT - show edit forms, a client side route
-router.get('/:id/edit', (req, res) => {
-
 });
 
 // UPDATE
