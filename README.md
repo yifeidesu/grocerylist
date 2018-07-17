@@ -35,6 +35,7 @@ Alternatively, a user can setup a local database environment to serve this appli
 * Install MongoDB
 * Run mongod.exe
 * Run mongo.exe
+
 Then change database URL:
 * Open `/grocerylist/.env`
 * Change the line of DB_URL as this `DB_URL=mongodb://localhost:27017/dbname`
