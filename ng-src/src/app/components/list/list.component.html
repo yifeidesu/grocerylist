@@ -1,7 +1,20 @@
+<!-- <ul class="items">
+  <li *ngFor="let item of items" [style.opacity]="item.purchased ? '0.4': '1'">
+    <input [(ngModel)]="item.purchased" name="purchased" 
+    type="checkbox" checked={{item.purchased}} class="form-check-input"
+      id="itemPurchased" (change)="checkPurchased(item)">
+    <a routerLink="/items/{{item._id}}">
+      {{item.title}}
+    </a>
+  </li>
+</ul> -->
+
+
+
 <ul class="items">
   <li *ngFor="let item of items" [style.opacity]="item.purchased ? '0.4': '1'">
-    <input [(ngModel)]="item.purchased" name="purchased" type="checkbox" checked={{item.purchased}} class="form-check-input"
-      id="itemPurchased">
+    <input [(ngModel)]="item.purchased" name="purchased" type="checkbox" value="{{item.purchased}}"
+      class="form-check-input" (change)="togglePurchased(item)">
     <a routerLink="/items/{{item._id}}">
       {{item.title}}
     </a>

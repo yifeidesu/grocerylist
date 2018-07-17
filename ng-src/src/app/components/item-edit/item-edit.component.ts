@@ -11,7 +11,6 @@ import { Location } from '@angular/common';
 })
 export class ItemEditComponent implements OnInit {
   item = {};
-  showDetail;
   itemId;
 
   constructor(
@@ -28,7 +27,6 @@ export class ItemEditComponent implements OnInit {
   getItemById() {
     this.route.params.subscribe(params => {
       const id = params.id;
-      console.log(id);
 
       this.itemService.getItemById(id).subscribe((data) => {
         this.item = data;
@@ -40,19 +38,11 @@ export class ItemEditComponent implements OnInit {
   save() {
     this.itemService.updateItem(this.item).subscribe((data) => {
       this.flashMessage.show('Saved', { cssClass: 'alert-success', timeout: 1000 });
-      this.toggleDisplay();
       this.location.back();
     });
-
   }
 
   back() {
     this.location.back();
   }
-
-  toggleDisplay() {
-    this.showDetail = !this.showDetail;
-  }
-
-
 }

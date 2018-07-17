@@ -12,7 +12,6 @@ import { Location } from '@angular/common';
 })
 export class ItemDetailComponent implements OnInit {
   item={};
-  showDetail = true;
   itemId = ''
 
   constructor(
@@ -29,7 +28,6 @@ export class ItemDetailComponent implements OnInit {
   getItemById() {
     this.route.params.subscribe(params => {
       const id = params.id;
-      console.log(id);
 
       this.itemService.getItemById(id).subscribe((data) => {
         this.item = data;
@@ -42,29 +40,19 @@ export class ItemDetailComponent implements OnInit {
     const result = confirm("Want to delete?");
     if (result) {
       this.itemService.deleteItem(this.itemId).subscribe((data) => {
-        console.log('delete item' + data);
+        this.flashMessage.show('Deleted', { cssClass: 'alert-danger', timeout: 1000 });
+        window.location.href = '/items';
       });
     }
-    this.showDetail = !this.showDetail;
-    window.location.href = '/items';
-  }
-
-  editItem() {
-    this.showDetail = !this.showDetail;
   }
 
   saveItem() {
     this.itemService.updateItem(this.item).subscribe((data) => {
       this.flashMessage.show('Saved', { cssClass: 'alert-success', timeout: 1000 });
-      this.toggleDisplay();
     });
   }
 
   back(){
     this.location.back();
-  }
-
-  toggleDisplay() {
-    this.showDetail = !this.showDetail;
   }
 }

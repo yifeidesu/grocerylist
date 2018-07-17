@@ -1,12 +1,11 @@
 <div class="col-lg-6">
-  <label>Item to Buy</label>
+  <label>{{ item.purchased ? 'Item purchased' : 'Item to purchase' }}</label>
   <h3>{{item.title}}</h3>
   <br>
   <div *ngIf="item.note">
     <label>Notes</label>
     <h5>{{item.note}}</h5>
   </div>
-
   <br>
   <button (click)="deleteItem()" class="btn btn-danger">Delete</button>
   <a routerLink="edit" class="btn btn-light">Edit</a>

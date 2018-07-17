@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ItemService } from '../../services/item/item.service';
 
-
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
@@ -21,9 +20,13 @@ export class ListComponent implements OnInit {
     this.itemService.getItems()
       .subscribe(data => {
         data.forEach(item => {
-          this.items.unshift(item);   
+          this.items.unshift(item);
         });
-        console.log(this.items);
       });
+  }
+
+  togglePurchased(item) {
+    this.itemService.updateItem(item).subscribe();
+    
   }
 }

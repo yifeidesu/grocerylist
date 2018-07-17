@@ -11,6 +11,7 @@ export class ItemAddComponent implements OnInit {
   @Input() items;
   @Input() createdItem = { title: '' };
   @Input() value;
+  titleText = '';
 
   constructor(private itemService: ItemService,
     private flashMessage: FlashMessagesService) { }
@@ -29,16 +30,12 @@ export class ItemAddComponent implements OnInit {
     }
   }
 
-  checkInputEmply() {
-    console.log(this.value);
-    
-    const titleInput = document.getElementById("title");
+  onKey(event: any) {
+    this.titleText = event.target.value;
+    console.log(this.titleText);
     const okBtn = document.getElementById("okBtn");
 
-    console.log(titleInput);
-    
-
-    if (titleInput.textContent.length > 1) {
+    if (this.titleText.length > 1) {
       okBtn.classList.remove("disabled");
     } else {
       okBtn.classList.add("disabled");
@@ -49,6 +46,7 @@ export class ItemAddComponent implements OnInit {
     document.getElementsByTagName("input")[0].value = '';
     document.getElementsByTagName("input")[1].value = '';
     this.createdItem = { title: '' };
+    document.getElementById("okBtn").classList.add("disabled");
   }
 
   populateList() {

@@ -33,7 +33,7 @@ router.put('/:id', (req, res) => {
     }, (err, item) => {
         if (err) throw err;
         if (item) {
-            res.json({ success: true, msg: "Item updated successfully." });
+            res.json({ success: true, msg: "Item updated successfully."});
         } else {
             res.json({ success: false, msg: "Item update failed." });
         }

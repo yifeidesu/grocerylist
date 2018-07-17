@@ -19,7 +19,6 @@ export class ItemService {
 
   /** GET Itemes from the server */
   getItems(): Observable<any> {
-    console.log(this.API_URL);
     return this.http.get<any>(this.API_URL, httpOptions)
       .pipe(
         catchError(this.handleError<any>('get items'))
@@ -27,21 +26,18 @@ export class ItemService {
   }
 
   getItemById(id): Observable<any> {
-    console.log(id);
     return this.http.get(this.API_URL + id, httpOptions).pipe(
       catchError(this.handleError<any>('Update item'))
     );
   }
 
   addItem(item): Observable<any> {
-    console.log(item);
     return this.http.post(this.API_URL, item, httpOptions).pipe(
       catchError(this.handleError<any>('Update item'))
     );
   }
 
   updateItem(item): Observable<any> {
-    console.log(item);
     return this.http.put(this.API_URL + item._id, item, httpOptions).pipe(
       catchError(this.handleError<any>('Update item'))
     );
