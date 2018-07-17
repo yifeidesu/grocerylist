@@ -35,4 +35,4 @@ module.exports.getItemById = (id, callback) => {
     Item.findById(id, callback);
 }
 
-module.exports = Item;
+//module.exports = Item;
