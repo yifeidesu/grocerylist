@@ -67,3 +67,8 @@ Then change database URL:
 * Click the Purchased checkbox to toggle item as purchased/unpurchased.
 ![edit](https://user-images.githubusercontent.com/23082500/42802351-aa3b77be-8970-11e8-8101-e593609938ed.png)
 
+## Stack
+This project is built with JavaScript and JavaScript based frameworks. 
+* Node.js, Express for back-end
+* Angular for front-end (Code in TypeScript, then build to JavaScript)
+* MongoDB
