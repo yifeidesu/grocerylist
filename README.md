@@ -4,7 +4,7 @@
 
 
 
-## deployment instructions
+## Deployment Instructions
 #### 0.	Download this repository
 #### 1.	Set up database. 
 *	Install mongodb locally, if not yet:[https://docs.mongodb.com/tutorials/install-mongodb-on-windows/](https://docs.mongodb.com/tutorials/install-mongodb-on-windows/)
