@@ -7,6 +7,7 @@ const itemsRouter = require('./routes/items');
 require('dotenv').config();
 
 const DB_URL = process.env.DB_URL;
+//const DB_URL='mongodb://localhost:27017/myapp';
 mongoose.connect(DB_URL, { useNewUrlParser: true });
 mongoose.connection.on('connected', () => {
     console.log('Connected to db at ' + DB_URL);
