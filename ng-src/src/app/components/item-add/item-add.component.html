@@ -16,3 +16,4 @@
 </form>
 <br>
 <button (click)="populateList()" id="randomBtn" class="btn btn-light" [ngClass]="items.length<1 ? '': 'disabled'">Generate Some</button>
+<button (click)="removeAll()" class="btn btn-danger">Clear All</button>

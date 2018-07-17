@@ -50,7 +50,6 @@ export class ItemAddComponent implements OnInit {
   }
 
   populateList() {
-
     if (this.items.length < 1) {
       const seeds = [
         { title: "Carrots", note: "Important!" },
@@ -63,6 +62,24 @@ export class ItemAddComponent implements OnInit {
           this.flashMessage.show('Added', { cssClass: 'alert-success', timeout: 1000 });
           this.items.unshift(data);
         });
+      });
+    }
+  }
+
+  removeAll(){
+    // alert 
+    const result = confirm("Want to delete?");
+    if (result) {
+      this.itemService.removeAll().subscribe((data) => {
+        if(data.success == true) {
+          this.flashMessage.show('All removed!', { cssClass: 'alert-danger', timeout: 1000 });
+          this.items.splice(0, this.items.length);
+          console.log(this.items);
+          
+        } else {
+          this.flashMessage.show('Something wrong happened.', { cssClass: 'alert-success', timeout: 1000 });
+          console.log(data.msg);
+        }
       });
     }
   }

@@ -21,19 +21,19 @@ export class ItemService {
   getItems(): Observable<any> {
     return this.http.get<any>(this.API_URL, httpOptions)
       .pipe(
-        catchError(this.handleError<any>('get items'))
+        catchError(this.handleError<any>('Get items'))
       );
   }
 
   getItemById(id): Observable<any> {
     return this.http.get(this.API_URL + id, httpOptions).pipe(
-      catchError(this.handleError<any>('Update item'))
+      catchError(this.handleError<any>('Get item by id'))
     );
   }
 
   addItem(item): Observable<any> {
     return this.http.post(this.API_URL, item, httpOptions).pipe(
-      catchError(this.handleError<any>('Update item'))
+      catchError(this.handleError<any>('Add item'))
     );
   }
 
@@ -45,7 +45,13 @@ export class ItemService {
 
   deleteItem(id): Observable<any> {
     return this.http.delete(this.API_URL + id, httpOptions).pipe(
-      catchError(this.handleError<any>('Update item'))
+      catchError(this.handleError<any>('Delete item'))
+    );
+  }
+
+  removeAll():Observable<any> {
+    return this.http.delete(this.API_URL, httpOptions).pipe(
+      catchError(this.handleError<any>('Remove all items'))
     );
   }
 

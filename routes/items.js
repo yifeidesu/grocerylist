@@ -67,4 +67,16 @@ router.delete('/:id', (req, res) => {
     });
 });
 
+router.delete('/', (req, res) => {
+
+    Item.remove({}, (err, item) => {
+        if (err) throw err;
+        if (item) {
+            res.json({ success: true, msg: "All items removed successfully: " + item });
+        } else {
+            res.json({ success: false, msg: "Failed to remove items." });
+        }
+    });
+});
+
 module.exports = router;
