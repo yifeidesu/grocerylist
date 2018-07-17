@@ -1,5 +1,7 @@
 # Coding Challenge: A Web Based Grocery List Tool.
 
+Solution by Robin Wang
+
 ### Application is live on this [link](https://limitless-river-45900.herokuapp.com/items)
 
 ## Deployment Instructions
@@ -42,7 +44,8 @@ Then change database URL:
 * Change the line of DB_URL as this `DB_URL=mongodb://localhost:27017/dbname`
 * Then restart `http://localhost:3000`'s server. Now the application is running with a local database.
 
-## Screenshots and comments, according to story backlog
+## Screenshots and feature explanation, according to story backlog
+This application achieves all story backlogs.
 ### Create and Index Screen
 * Use the input fields to add items to the list.
 * Every item has a title and optionally has a note. The note is not showing in the list.

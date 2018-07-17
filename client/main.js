@@ -548,7 +548,7 @@ module.exports = "#randomBtn {\r\n    background-color: blueviolet;\r\n    color
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form class=\"col-lg-6\">\n  <div>\n    <label for=\"itemTitle\">Title</label>\n    <input [(ngModel)]=\"item.title\" name=\"title\" id=\"itemTitle\" class=\"form-control\" type=\"text\" placeholder=\"What to buy...\">\n  </div>\n  <br>\n  <div class=\"form-group\">\n    <label for=\"itemNote\">Notes</label>\n    <textarea [(ngModel)]=\"item.note\" name=\"note\" id=\"itemNote\" class=\"form-control\" rows=\"3\"></textarea>\n  </div>\n  <div class=\"form-check\">\n    <input [(ngModel)]=\"item.purchased\" name=\"purchased\" type=\"checkbox\" checked={{item.purchased}} class=\"form-check-input\"\n      id=\"itemPurchased\">\n    <label class=\"form-check-label\" for=\"itemPurchased\">Purchased</label>\n  </div>\n  <br>\n  <button (click)=\"save()\" class=\"btn btn-primary\" type=\"submit\">Save</button>\n  <button (click)=\"back()\" class=\"btn btn-light\">Cancel</button>\n</form>\n"
+module.exports = "<form class=\"col-lg-6\">\n  <div>\n    <label for=\"itemTitle\">Title</label>\n    <input [(ngModel)]=\"item.title\" name=\"title\" id=\"itemTitle\" class=\"form-control\" type=\"text\" placeholder=\"What to buy...\">\n  </div>\n  <br>\n  <div class=\"form-group\">\n    <label for=\"itemNote\">Notes</label>\n    <textarea [(ngModel)]=\"item.note\" name=\"note\" id=\"itemNote\" class=\"form-control\" rows=\"3\"></textarea>\n  </div>\n  <div class=\"form-check\">\n    <input [(ngModel)]=\"item.purchased\" name=\"purchased\" type=\"checkbox\" value={{item.purchased}} class=\"form-check-input\" id=\"itemPurchased\">\n    <label class=\"form-check-label\" for=\"itemPurchased\">Purchased</label>\n  </div>\n  <br>\n  <button (click)=\"save()\" class=\"btn btn-primary\" type=\"submit\">Save</button>\n  <button (click)=\"back()\" class=\"btn btn-light\">Cancel</button>\n</form>"
 
 /***/ }),
 
@@ -888,7 +888,7 @@ __webpack_require__.r(__webpack_exports__);
 // The list of file replacements can be found in `angular.json`.
 var environment = {
     production: false,
-    API_URL: 'api/items/'
+    API_URL: 'api/items/' // must build
     //API_URL:'http://localhost:3000/api/items/'
 };
 /*
