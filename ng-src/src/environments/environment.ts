@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  API_URL:'api/items/'
+  API_URL:'api/items/' // must build
   //API_URL:'http://localhost:3000/api/items/'
 };
 
