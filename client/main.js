@@ -888,7 +888,8 @@ __webpack_require__.r(__webpack_exports__);
 // The list of file replacements can be found in `angular.json`.
 var environment = {
     production: false,
-    API_URL: 'http://localhost:3000/api/items/'
+    API_URL: 'api/items/'
+    //API_URL:'http://localhost:3000/api/items/'
 };
 /*
  * In development mode, to ignore zone related error stack frames such as
