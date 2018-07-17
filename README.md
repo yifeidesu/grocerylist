@@ -52,6 +52,7 @@ This application achieves all story backlogs.
 * This page lists all items at the right-hand side.
 * Purchased items have a lower opacity, looking differently from unpurchased ones.
 * Click an item in the list to open its detail view.
+* Use Generate Some and Clear All buttons to quickly generate/clear items to test the application.
 ![dashboard](https://user-images.githubusercontent.com/23082500/42802348-aa1c389a-8970-11e8-9080-fb05b9f0df78.png)
 <hr>
 
@@ -61,7 +62,6 @@ This application achieves all story backlogs.
 * Click the Delete button will get a confirm dialogue.
 * Click the Edit button will navigate the user to the edit forms.
 * In the detail view, when an item is purchased, it will have a label of Item purchased; while when not purchased, it has a label of Item to purchase. 
-* Use Generate Some and Clear All buttons to quickly generate/clear items to test the application.
 ![detail](https://user-images.githubusercontent.com/23082500/42802349-aa2dd014-8970-11e8-9b69-d37bfeb796e2.png)
 <hr>
 
