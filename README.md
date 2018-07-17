@@ -30,7 +30,7 @@ To integrate the front-end change with the whole application:
 This will generate new artifacts in the output folder `/client` and update the application’s front-end side.  
 
 ### About database
-Following the above steps, now the server is connected to an database for development purpose. So that, if a user creates/edits/delete items with this local-deployed app, the modification will not reflect on the app’s [live website](https://still-beach-44000.herokuapp.com/items). 
+Following the above steps, now the server is connected to an database for development purpose. So that, if a user creates/edits/delete items with this local-deployed app, the modification will not reflect on the app’s [live website](https://limitless-river-45900.herokuapp.com/items). 
 
 Alternatively, a user can setup a local database environment to serve this application, which takes a few more steps. To do that, please refer to [MongoDB's Docs](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/) and do the below steps:
 * Install MongoDB
