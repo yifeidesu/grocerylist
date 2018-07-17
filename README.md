@@ -2,9 +2,11 @@
 
 ## [:zap: Visit Live Site :zap:](https://still-beach-44000.herokuapp.com/items)
 
+
+
 ## deployment instructions
 0.	Download this repository
-1.	Set up database. 
+..1.	Set up database. 
 a.	install mongodb locally, if not yet.
 b.	open a terminal and run mongod
 c.	open another terminal and run mongodb.exe
