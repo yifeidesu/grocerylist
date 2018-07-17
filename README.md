@@ -1,6 +1,6 @@
 # Coding Challenge: A Web Based Grocery List Tool.
 
-#### Application is deployed on Heroku. Please visit at this [link](https://still-beach-44000.herokuapp.com/items)
+### Application is live on this [link](https://still-beach-44000.herokuapp.com/items)
 
 ## Deployment Instructions
 ### 0.	Download
@@ -41,3 +41,5 @@ Then change database URL:
 * Open `/grocerylist/.env`
 * Change the line of DB_URL as this `DB_URL=mongodb://localhost:27017/dbname`
 * Then restart `http://localhost:3000`'s server. Now the application is running with local database.
+
+## Screenshots and comments

@@ -292,7 +292,7 @@ module.exports = "#randomBtn {\r\n    background-color: blueviolet;\r\n    color
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form>\n  <div>\n    <label for=\"itemTitle\">Title</label>\n    <input [(ngModel)]=\"createdItem.title\" name=\"title\" id=\"title\" (keyup)=\"onKey($event)\" [value]=\"textContent\" class=\"form-control\" type=\"text\"\n      placeholder=\"What to buy...\">\n  </div>\n  <br>\n  <div class=\"form-group\">\n    <label for=\"itemNote\">Notes</label>\n    <textarea [(ngModel)]=\"createdItem.note\" name=\"note\" id=\"itemNote\" class=\"form-control\" rows=\"2\" placeholder=\"Add some notes...\"></textarea>\n  </div>\n\n  <button [disabled]=\"isUnchanged\" (click)=\"addItem()\" type=\"submit\" id=\"okBtn\" class=\"btn btn-success disabled\">Add</button>\n  <button (click)=\"clearFields()\" routerLink=\"/items\" class=\"btn btn-light\">Cancel</button>\n\n</form>\n<br>\n<button (click)=\"populateList()\" id=\"randomBtn\" class=\"btn btn-light\" [ngClass]=\"items.length<1 ? '': 'disabled'\">Generate Some</button>\n<button (click)=\"removeAll()\" class=\"btn btn-danger\">Clear All</button>\n"
+module.exports = "<form>\n  <div>\n    <label for=\"itemTitle\">Title</label>\n    <input [(ngModel)]=\"createdItem.title\" name=\"title\" id=\"titleInput\" (keyup)=\"onKey($event)\" class=\"form-control\" type=\"text\"\n      placeholder=\"What to buy...\">\n  </div>\n  <br>\n  <div class=\"form-group\">\n    <label for=\"itemNote\">Notes</label>\n    <textarea [(ngModel)]=\"createdItem.note\" name=\"note\" id=\"noteInput\" class=\"form-control\" rows=\"2\" placeholder=\"Add some notes...\"></textarea>\n  </div>\n\n  <button [disabled]=\"isUnchanged\" (click)=\"addItem()\" type=\"submit\" id=\"okBtn\" class=\"btn btn-success disabled\">Add</button>\n  <button (click)=\"clearFields()\" routerLink=\"/items\" class=\"btn btn-light\">Cancel</button>\n\n</form>\n<br>\n<button (click)=\"populateList()\" id=\"randomBtn\" class=\"btn btn-light\" [ngClass]=\"items.length<1 ? '': 'disabled'\">Generate Some</button>\n<button (click)=\"removeAll()\" class=\"btn btn-danger\" [ngClass]=\"items.length<1? 'disabled': ''\">Clear All</button>\n"
 
 /***/ }),
 
@@ -345,7 +345,6 @@ var ItemAddComponent = /** @class */ (function () {
     };
     ItemAddComponent.prototype.onKey = function (event) {
         this.titleText = event.target.value;
-        console.log(this.titleText);
         var okBtn = document.getElementById("okBtn");
         if (this.titleText.length > 1) {
             okBtn.classList.remove("disabled");
@@ -355,8 +354,8 @@ var ItemAddComponent = /** @class */ (function () {
         }
     };
     ItemAddComponent.prototype.clearFields = function () {
-        document.getElementsByTagName("input")[0].value = '';
-        document.getElementsByTagName("input")[1].value = '';
+        document.getElementById("titleInput").value = '';
+        document.getElementById("noteInput").value = '';
         this.createdItem = { title: '' };
         document.getElementById("okBtn").classList.add("disabled");
     };
@@ -385,11 +384,10 @@ var ItemAddComponent = /** @class */ (function () {
                 if (data.success == true) {
                     _this.flashMessage.show('All removed!', { cssClass: 'alert-danger', timeout: 1000 });
                     _this.items.splice(0, _this.items.length);
-                    console.log(_this.items);
                 }
                 else {
                     _this.flashMessage.show('Something wrong happened.', { cssClass: 'alert-success', timeout: 1000 });
-                    console.log(data.msg);
+                    console.error(data.msg);
                 }
             });
         }
