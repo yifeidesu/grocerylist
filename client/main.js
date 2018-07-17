@@ -292,7 +292,7 @@ module.exports = "#randomBtn {\r\n    background-color: blueviolet;\r\n    color
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form>\n  <div>\n    <label for=\"itemTitle\">Title</label>\n    <input [(ngModel)]=\"createdItem.title\" name=\"title\" id=\"title\" (keyup)=\"onKey($event)\" [value]=\"textContent\" class=\"form-control\" type=\"text\"\n      placeholder=\"What to buy...\">\n  </div>\n  <br>\n  <div class=\"form-group\">\n    <label for=\"itemNote\">Notes</label>\n    <textarea [(ngModel)]=\"createdItem.note\" name=\"note\" id=\"itemNote\" class=\"form-control\" rows=\"2\" placeholder=\"Add some notes...\"></textarea>\n  </div>\n\n  <button [disabled]=\"isUnchanged\" (click)=\"addItem()\" type=\"submit\" id=\"okBtn\" class=\"btn btn-success disabled\">Add</button>\n  <button (click)=\"clearFields()\" routerLink=\"/items\" class=\"btn btn-light\">Cancel</button>\n\n</form>\n<br>\n<button (click)=\"populateList()\" id=\"randomBtn\" class=\"btn btn-light\" [ngClass]=\"items.length<1 ? '': 'disabled'\">Generate Some</button>\n"
+module.exports = "<form>\n  <div>\n    <label for=\"itemTitle\">Title</label>\n    <input [(ngModel)]=\"createdItem.title\" name=\"title\" id=\"title\" (keyup)=\"onKey($event)\" [value]=\"textContent\" class=\"form-control\" type=\"text\"\n      placeholder=\"What to buy...\">\n  </div>\n  <br>\n  <div class=\"form-group\">\n    <label for=\"itemNote\">Notes</label>\n    <textarea [(ngModel)]=\"createdItem.note\" name=\"note\" id=\"itemNote\" class=\"form-control\" rows=\"2\" placeholder=\"Add some notes...\"></textarea>\n  </div>\n\n  <button [disabled]=\"isUnchanged\" (click)=\"addItem()\" type=\"submit\" id=\"okBtn\" class=\"btn btn-success disabled\">Add</button>\n  <button (click)=\"clearFields()\" routerLink=\"/items\" class=\"btn btn-light\">Cancel</button>\n\n</form>\n<br>\n<button (click)=\"populateList()\" id=\"randomBtn\" class=\"btn btn-light\" [ngClass]=\"items.length<1 ? '': 'disabled'\">Generate Some</button>\n<button (click)=\"removeAll()\" class=\"btn btn-danger\">Clear All</button>\n"
 
 /***/ }),
 
@@ -373,6 +373,24 @@ var ItemAddComponent = /** @class */ (function () {
                     _this.flashMessage.show('Added', { cssClass: 'alert-success', timeout: 1000 });
                     _this.items.unshift(data);
                 });
+            });
+        }
+    };
+    ItemAddComponent.prototype.removeAll = function () {
+        var _this = this;
+        // alert 
+        var result = confirm("Want to delete?");
+        if (result) {
+            this.itemService.removeAll().subscribe(function (data) {
+                if (data.success == true) {
+                    _this.flashMessage.show('All removed!', { cssClass: 'alert-danger', timeout: 1000 });
+                    _this.items.splice(0, _this.items.length);
+                    console.log(_this.items);
+                }
+                else {
+                    _this.flashMessage.show('Something wrong happened.', { cssClass: 'alert-success', timeout: 1000 });
+                    console.log(data.msg);
+                }
             });
         }
     };
@@ -634,7 +652,7 @@ module.exports = ".items {\r\n    margin: 0 0 2em 0;\r\n    list-style-type: non
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- <ul class=\"items\">\n  <li *ngFor=\"let item of items\" [style.opacity]=\"item.purchased ? '0.4': '1'\">\n    <input [(ngModel)]=\"item.purchased\" name=\"purchased\" \n    type=\"checkbox\" checked={{item.purchased}} class=\"form-check-input\"\n      id=\"itemPurchased\" (change)=\"checkPurchased(item)\">\n    <a routerLink=\"/items/{{item._id}}\">\n      {{item.title}}\n    </a>\n  </li>\n</ul> -->\n\n\n\n<ul class=\"items\">\n  <li *ngFor=\"let item of items\" [style.opacity]=\"item.purchased ? '0.4': '1'\">\n    <input [(ngModel)]=\"item.purchased\" name=\"purchased\" type=\"checkbox\" value=\"{{item.purchased}}\"\n      class=\"form-check-input\" (change)=\"togglePurchased(item)\">\n    <a routerLink=\"/items/{{item._id}}\">\n      {{item.title}}\n    </a>\n  </li>\n</ul>"
+module.exports = "<ul class=\"items\">\n  <li *ngFor=\"let item of items\" [style.opacity]=\"item.purchased ? '0.4': '1'\">\n    <input [(ngModel)]=\"item.purchased\" name=\"purchased\" type=\"checkbox\" value=\"{{item.purchased}}\"\n      class=\"form-check-input\" (change)=\"togglePurchased(item)\">\n    <a routerLink=\"/items/{{item._id}}\">\n      {{item.title}}\n    </a>\n  </li>\n</ul>"
 
 /***/ }),
 
@@ -816,19 +834,22 @@ var ItemService = /** @class */ (function () {
     /** GET Itemes from the server */
     ItemService.prototype.getItems = function () {
         return this.http.get(this.API_URL, httpOptions)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(this.handleError('get items')));
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(this.handleError('Get items')));
     };
     ItemService.prototype.getItemById = function (id) {
-        return this.http.get(this.API_URL + id, httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(this.handleError('Update item')));
+        return this.http.get(this.API_URL + id, httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(this.handleError('Get item by id')));
     };
     ItemService.prototype.addItem = function (item) {
-        return this.http.post(this.API_URL, item, httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(this.handleError('Update item')));
+        return this.http.post(this.API_URL, item, httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(this.handleError('Add item')));
     };
     ItemService.prototype.updateItem = function (item) {
         return this.http.put(this.API_URL + item._id, item, httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(this.handleError('Update item')));
     };
     ItemService.prototype.deleteItem = function (id) {
-        return this.http.delete(this.API_URL + id, httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(this.handleError('Update item')));
+        return this.http.delete(this.API_URL + id, httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(this.handleError('Delete item')));
+    };
+    ItemService.prototype.removeAll = function () {
+        return this.http.delete(this.API_URL, httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(this.handleError('Remove all items')));
     };
     /**
      * Handle Http operation that failed.
