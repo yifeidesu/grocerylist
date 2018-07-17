@@ -1,6 +1,6 @@
-# GroceryList: A Web Based Grocery List Tool.
+# Coding Challenge: A Web Based Grocery List Tool.
 
-## [:zap: Visit Live Site :zap:](https://still-beach-44000.herokuapp.com/items)
+#### Application is deployed on Heroku. Please visit at this [link](https://still-beach-44000.herokuapp.com/items)
 
 ## Deployment Instructions
 ### 0.	Download
@@ -14,7 +14,6 @@ Download this repository.
 ### 2.	And that's it!
 Open browser and go to [http://localhost:3000](http://localhost:3000/items)  
 
-<hr>
 
 ### To Tweak Front-end Side
 Now the app’s front-end is running with the artifacts built from the Angular front-end source code. If you do some change to the Angular code in the `/ng-src` folder, the modification will not directly reflect on the screen, because the built artifact will not automatically rebuild with the changed front-end source code.
