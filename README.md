@@ -43,3 +43,7 @@ Then change database URL:
 * Then restart `http://localhost:3000`'s server. Now the application is running with local database.
 
 ## Screenshots and comments
+![dashboard](https://user-images.githubusercontent.com/23082500/42802348-aa1c389a-8970-11e8-9080-fb05b9f0df78.png)
+![detail](https://user-images.githubusercontent.com/23082500/42802349-aa2dd014-8970-11e8-9b69-d37bfeb796e2.png)
+![edit](https://user-images.githubusercontent.com/23082500/42802351-aa3b77be-8970-11e8-8101-e593609938ed.png)
+
